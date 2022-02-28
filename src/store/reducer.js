@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 0,
-  mode:false
+  darkMode:false,
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const mode = createSlice({
+  name: 'mode',
   initialState,
   reducers: {
     darkmode: (state) => {
-      state.mode = !state.mode
+      state.darkMode = !state.darkMode
     },
+    
     
   },
 })
 
 
-export const { darkmode } = counterSlice.actions
+export const { darkmode,atıs } = mode.actions
 
-export default counterSlice.reducer
+export default mode.reducer
