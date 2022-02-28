@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import axios from "axios";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { useSelector, useDispatch } from "react-redux";
+import {darkmode } from "./store/reducer";
+
+const queryClient = new QueryClient();
 
 function App() {
+  const mode = useSelector((state) => state.counter.mode);
+  const dispatch = useDispatch();
+console.log(mode);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Example />
+      <button
+        aria-label="Increment value"
+        onClick={() => dispatch(darkmode())}
+      >
+        darkmode
+      </button>
+      <span>{mode}</span>
+      
+    </QueryClientProvider>
   );
+}
+
+function Example() {
+  const URL = "https://rickandmortyapi.com/api/character";
+  const { isLoading, error, data } = useQuery("repoData", () =>
+    axios
+      .get(URL)
+      .then((res) => res)
+      .catch((err) => console.log(err))
+  );
+
+
+  return <div></div>;
 }
 
 export default App;
