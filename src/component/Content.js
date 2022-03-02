@@ -3,20 +3,21 @@ import { useQuery } from "react-query";
 import { fetchData } from "../utils/fetchData";
 import Card from "./Card";
 import content from "./content.module.css";
+import loading from "../assets/loadingİmage.jpg";
+import errorImage from "../assets/error.jpg";
+import Error from "./Error-loading/Error";
 
 function Content() {
-  const { isLoading, error, data } = useQuery("repoData", fetchData);
-
-  if (isLoading) {
-    return <h1> ... Yükleniyor</h1>;
-  }
-  if (error) {
-    return <h1>bir sorunla karşılaştım</h1>;
-  }
-
+  const { isLoading, data, isError } = useQuery(
+    "rick-morty",
+    fetchData
+  );
   return (
     <main className={content.boxcontainer}>
-      {data.data.results.map((item) => (
+      {isLoading && <Error image={loading} text={"Loading..."} />}
+      {isError && <Error image={errorImage} text={"404 Hatası aldım"} />}
+
+      {data?.data.results.map((item) => (
         <Card key={item.id} item={item} />
       ))}
     </main>

@@ -5,6 +5,5 @@ export function fetchData() {
   const movies = axios
     .get(URL)
     .then((res) => res)
-    .catch((err) => console.log(err));
   return movies;
 }

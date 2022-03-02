@@ -3,6 +3,7 @@ import content from "./content.module.css";
 
 function Card({ item }) {
   const { name, status, species, image } = item;
+  
   function statusColor() {
     if(status==='Dead') {
       return 'red'
