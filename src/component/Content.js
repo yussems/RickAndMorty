@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { fetchData } from "../utils/fetchData";
 import Card from "./Card";
+import content from "./content.module.css";
 
 function Content() {
   const { isLoading, error, data } = useQuery("repoData", fetchData);
@@ -13,13 +14,12 @@ function Content() {
     return <h1>bir sorunla karşılaştım</h1>;
   }
 
-
   return (
-    <div>
+    <main className={content.boxcontainer}>
       {data.data.results.map((item) => (
         <Card key={item.id} item={item} />
       ))}
-    </div>
+    </main>
   );
 }
 

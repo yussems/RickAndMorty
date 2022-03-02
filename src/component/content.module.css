@@ -1,0 +1,24 @@
+.boxcontainer{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.box {
+    width: 15rem;
+    height: 25rem;
+    border: 1px solid rgb(185, 178, 178);   
+}
+.box:hover{
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.boxvalue{
+    padding: .5rem;
+}
+.image {
+    width: 100%;
+    object-fit: contain;
+}
