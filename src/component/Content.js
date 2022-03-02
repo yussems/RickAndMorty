@@ -13,7 +13,6 @@ function Content() {
     return <h1>bir sorunla karşılaştım</h1>;
   }
 
-  console.log(data);
 
   return (
     <div>
