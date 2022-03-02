@@ -1,24 +1,24 @@
 .boxcontainer {
   padding-top: 3rem;
+  background-color: #333333;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 3rem;
+  transition: background-color .5s;
 
-  transition: background-color 0.5s;
 }
 .box {
   width: 15rem;
   height: 25rem;
   border: 1px solid rgb(185, 178, 178);
   border-radius: 1.2rem;
-
-  transition: transform 0.3s;
+  transition:transform .3s ;
 }
 .box:hover {
-  border-color: black;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transform: scale(1.1);
+  border-color: white;
+  box-shadow: rgba(223, 206, 206, 0.35) 0px 5px 15px;
+  transform: scale(1.1)
 }
 .boxvalue {
   padding: 0.5rem;

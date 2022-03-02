@@ -5,11 +5,11 @@ const initialState = {
 }
 
 export const mode = createSlice({
-  name: 'mode',
+  name: 'modes',
   initialState,
   reducers: {
-    darkmode: (state) => {
-      state.darkMode = !state.darkMode
+    setDarkMode: (state,action) => {
+      state.darkMode = action.payload
     },
     
     
@@ -17,6 +17,6 @@ export const mode = createSlice({
 })
 
 
-export const { darkmode,atıs } = mode.actions
+export const { setDarkMode } = mode.actions
 
 export default mode.reducer

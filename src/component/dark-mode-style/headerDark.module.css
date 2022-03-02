@@ -1,0 +1,14 @@
+.container {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333333;
+  border-bottom: 1px solid #fff;
+  transition: background-color 0.5s;
+}
+.container h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
