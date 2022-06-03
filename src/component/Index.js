@@ -26,6 +26,16 @@ function Index() {
     fetchQueryData(id)
   );
 
+
+  if(isError){
+    return <Error image={errorImage} text={"404 Hatası aldım"} />
+  }
+  
+
+  if(isLoading){
+    return <Error image={loading} text={"Loading..."} />
+  }
+  
   return (
     <div
       className={route.bodyColor}
@@ -35,8 +45,6 @@ function Index() {
           : { color: "black", backgroundColor: "white" }
       }
     >
-      {isLoading && <Error image={loading} text={"Loading..."} />}
-      {isError && <Error image={errorImage} text={"404 Hatası aldım"} />}
       <div className={route.container}>
         <div className={route.leftPlace}>
           <Card item={data?.data} />

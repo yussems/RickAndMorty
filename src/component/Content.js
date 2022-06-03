@@ -22,7 +22,7 @@ function Content() {
       {isError && <Error image={errorImage} text={"404 Hatası aldım"} />}
 
       {data?.data.results.map((item) => (
-        <Link to={`${item.id}`} key={item.id}>
+        <Link to={`index/${item.id}`} key={item.id}>
           <Card  item={item} />
         </Link>
       ))}

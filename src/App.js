@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 //react Query
 
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link, BrowserRouter, Outlet } from "react-router-dom";
 // react Router v6
 
 //component
@@ -24,8 +24,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Content />} />
-
-          <Route path=":id" element={<Index />} />
+          <Route path="/index" element={<Indexes />}>
+            <Route path=":id" element={<Index />} />
+          </Route>
 
           <Route
             path="*"
@@ -34,6 +35,14 @@ function App() {
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
+  );
+}
+
+function Indexes() {
+  return (
+    <div>
+      <Outlet />
+    </div>
   );
 }
 
