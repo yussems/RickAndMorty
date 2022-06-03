@@ -8,6 +8,7 @@ import loading from "../assets/loadingİmage.jpg";
 import errorImage from "../assets/error.jpg";
 import Error from "./Error-loading/Error";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Content() {
   const { isLoading, data, isError } = useQuery("rick-morty", fetchData);
@@ -21,7 +22,9 @@ function Content() {
       {isError && <Error image={errorImage} text={"404 Hatası aldım"} />}
 
       {data?.data.results.map((item) => (
-        <Card key={item.id} item={item} />
+        <Link to={`${item.id}`} key={item.id}>
+          <Card  item={item} />
+        </Link>
       ))}
     </main>
   );
